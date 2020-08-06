@@ -72,51 +72,27 @@
         </header>
 
         <main>
-            <article class="teacher-item">
-                <header>
-                    <img src="https://avatars1.githubusercontent.com/u/48885210?s=460&u=5b39afe2f6e5c704ef722dae12994ddf04500701&v=4"
-                        alt="Anderson Antunes">
-                    <div>
-                        <strong>Anderson Antunes</strong>
-                        <span>Química</span>
-                    </div>
-                </header>
-                <p>Entusiasta das melhores tecnologias de química avançada.<br /><br />
-                    Apaixonado por explodir coisas em laboratório e por mudar a vida das
-                    pessoas através de experiências. Mais de 200.000 pessoas já passaram
-                    por uma das minhas explosões.
-                </p>
-                <footer>
-                    <p>Preço/hora <strong>R$ 20, 00</strong> </p>
-                    <button type="button">
-                        <img src="./images/icons/whatsapp.svg" alt="Whatsapp">
-                        Entrar em contato
-                    </button>
-                </footer>
-            </article>
 
+            {%for proffy in proffys %}
             <article class="teacher-item">
                 <header>
-                    <img src="https://avatars1.githubusercontent.com/u/48885210?s=460&u=5b39afe2f6e5c704ef722dae12994ddf04500701&v=4"
-                        alt="Anderson Antunes">
+                    <img src="{{proffy.avatar}}" alt="{{proffy.name}}">
                     <div>
-                        <strong>Anderson Antunes</strong>
-                        <span>Química</span>
+                        <strong>{{proffy.name}}</strong>
+                        <span>{{proffy.subject}}</span>
                     </div>
                 </header>
-                <p>Entusiasta das melhores tecnologias de química avançada.<br /><br />
-                    Apaixonado por explodir coisas em laboratório e por mudar a vida das
-                    pessoas através de experiências. Mais de 200.000 pessoas já passaram
-                    por uma das minhas explosões.
-                </p>
+                <p>{{proffy.bio}}</p>
                 <footer>
-                    <p>Preço/hora <strong>R$ 20, 00</strong> </p>
-                    <button type="button">
-                        <img src="./images/icons/whatsapp.svg" alt="Whatsapp">
-                        Entrar em contato
-                    </button>
+                    <p>Preço/hora <strong>R${{proffy.cost}}</strong> </p>
+                    <a class="button" target="_blank"
+                        href="https://api.whatsapp.com/send?l=pt_BR&phone=55{{proffy.whatsapp}}&text=Tenho interesse na sua aula de {{proffy.subject}} {{proffy.name}}">
+                        <img src="./images/icons/whatsapp.svg" alt="Whatsapp">Entrar em contato
+                    </a>
                 </footer>
             </article>
+            {%endfor%}
+
         </main>
     </div>
 
