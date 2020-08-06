@@ -27,12 +27,26 @@ const proffys = [
   },
 ];
 
+const subjects = [
+  "Artes",
+  "Biologia",
+  "Ciências",
+  "Educação física",
+  "Física",
+  "Geografia",
+  "História",
+  "Matemática",
+  "Português",
+  "Química",
+];
+
 function pageLanding(require, response) {
   return response.render("index.html");
 }
 
 function pageStudy(require, response) {
-  return response.render("study.html");
+  const filters = require.query;
+  return response.render("study.html", { proffys, filters, subjects });
 }
 
 function pageGiveClasses(require, response) {
