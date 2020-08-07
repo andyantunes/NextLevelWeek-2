@@ -40,13 +40,28 @@ const subjects = [
   "Química",
 ];
 
+const weekdays = [
+  "Domingo",
+  "Segunda-feira",
+  "Terça-feira",
+  "Quarta-feira",
+  "Quinta-feira",
+  "Sexta-feira",
+  "Sábado",
+];
+
 function pageLanding(require, response) {
   return response.render("index.html");
 }
 
 function pageStudy(require, response) {
   const filters = require.query;
-  return response.render("study.html", { proffys, filters, subjects });
+  return response.render("study.html", {
+    proffys,
+    filters,
+    subjects,
+    weekdays,
+  });
 }
 
 function pageGiveClasses(require, response) {

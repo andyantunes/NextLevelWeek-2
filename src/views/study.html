@@ -47,13 +47,13 @@
                         <label for="weekday">Dia da semana</label>
                         <select name="weekday" id="weekday">
                             <option value="" disabled="" hidden="">Selecione uma opção</option>
-                            <option value="0">Domingo</option>
-                            <option value="1">Segunda-feira</option>
-                            <option value="2">Terça-feira</option>
-                            <option value="3">Quarta-feira</option>
-                            <option value="4">Quinta-feira</option>
-                            <option value="5">Sexta-feira</option>
-                            <option value="6">Sábado</option>
+
+                            {%for weekday in weekdays %}
+                            <option value="{{loop.index0}}" {{"selected" if filters.weekday == loop.index0}}>
+                                {{weekday}}
+                            </option>
+                            {%endfor%}
+
                         </select>
                     </div>
 
