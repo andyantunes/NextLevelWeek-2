@@ -50,6 +50,11 @@ const weekdays = [
   "Sábado",
 ];
 
+function getSubject(subjectsNumber) {
+  const position = +subjectsNumber - 1;
+  return subjects[position];
+}
+
 function pageLanding(require, response) {
   return response.render("index.html");
 }
@@ -65,7 +70,18 @@ function pageStudy(require, response) {
 }
 
 function pageGiveClasses(require, response) {
-  return response.render("give-classes.html");
+  const data = require.query;
+
+  const isNotEmpty = Object.keys(data).length > 0;
+
+  if (isNotEmpty) {
+    data.subject = getSubject(data.subject);
+    proffys.push(data);
+
+    return response.redirect("/study");
+  }
+
+  return response.render("give-classes.html", { subjects, weekdays });
 }
 
 const express = require("express");
